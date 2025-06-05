@@ -1,115 +1,170 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+// src/pages/index.js
+import React, { useEffect, useRef } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Palette, Users as UsersIcon, Sparkles, LifeBuoy, TrendingUp, Lightbulb, ShieldCheck } from 'lucide-react'; // CORRECTED: Added ShieldCheck
+import { gsap } from 'gsap';
+import { PRIMARY_COLOR, SECONDARY_COLOR, TEXT_ON_PRIMARY, DARK_TEXT, SUBTLE_TEXT, ACCENT_YELLOW, LIGHT_BACKGROUND } from './_app';
+import { companyName, services, testimonials } from '../data/trendtwistrData';
+import ServiceCardHighlight from '../components/ServiceCardHighlight';
+import TestimonialCard from '../components/TestimonialCard';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const HomePage = () => {
+  const heroContentRef = useRef(null);
+  const servicesSectionRef = useRef(null);
+  const whyChooseUsSectionRef = useRef(null);
+  const testimonialsSectionRef = useRef(null);
+  const ctaSectionRef = useRef(null);
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Hero Animation
+      if (heroContentRef.current) {
+        gsap.fromTo(heroContentRef.current.children, 
+          { autoAlpha: 0, y: 50 }, 
+          { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out', stagger: 0.2, delay: 0.3 }
+        );
+      }
 
-export default function Home() {
+      const animateSection = (sectionRef) => {
+        if (sectionRef.current) {
+          gsap.fromTo(sectionRef.current.querySelectorAll('.section-title, .section-subtitle, .section-content-item'),
+            { autoAlpha: 0, y: 40 },
+            { 
+              autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
+              scrollTrigger: { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" }
+            }
+          );
+        }
+      };
+      
+      animateSection(servicesSectionRef);
+      animateSection(whyChooseUsSectionRef);
+      animateSection(testimonialsSectionRef);
+      animateSection(ctaSectionRef);
+    }
+  }, []);
+
+  const whyChooseUsItems = [
+    { icon: Lightbulb, title: "Innovative Strategies", description: "Cutting-edge solutions tailored to your unique business needs." },
+    { icon: ShieldCheck, title: "Reliable Expertise", description: "A team of seasoned professionals dedicated to your success." },
+    { icon: TrendingUp, title: "Results-Driven", description: "Focused on delivering measurable growth and tangible outcomes." },
+    { icon: UsersIcon, title: "Client-Centric Approach", description: "Your goals are our priority; we partner with you every step." },
+  ];
+
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Head>
+        <title>{companyName} | Drive Growth with Expert Solutions</title>
+        <meta name="description" content={`${companyName} offers expert Digital Marketing, Accounting, and Recruitment services to propel your business forward.`} />
+      </Head>
+
+      {/* Hero Section */}
+      <section 
+        className="relative text-white py-32 md:py-48 min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden" 
+        style={{ background: `linear-gradient(rgba(43, 38, 127, 0.7), rgba(43, 38, 127, 0.85)), url('/assets/hero-background.jpg') no-repeat center center/cover` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 to-primary/30 opacity-70"></div>
+        <div ref={heroContentRef} className="container-padding relative z-10 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight opacity-0">
+            Twist Your Trends, <span className="block" style={{color: ACCENT_YELLOW}}>Ignite Your Growth.</span>
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90 font-light opacity-0">
+            {companyName} empowers your business with strategic Digital Marketing, precise Accounting, and targeted Recruitment solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-5 opacity-0">
+            <Link href="/services"
+              style={{ backgroundColor: PRIMARY_COLOR, color: TEXT_ON_PRIMARY }}
+              className={`font-semibold py-3.5 px-10 rounded-lg text-lg shadow-lg transform hover:scale-105 transition-all duration-300 hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-secondary focus:ring-primary`}>
+              Our Services
+            </Link>
+            <Link href="/contact"
+              className={`bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold py-3.5 px-10 rounded-lg text-lg border border-white/30 shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-secondary focus:ring-white`}>
+              Get a Consultation
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Services Overview Section */}
+      <section ref={servicesSectionRef} className="section-padding bg-white">
+        <div className="container-padding text-center">
+          <h2 className={`section-title text-3xl md:text-4xl font-bold text-dark-text mb-4 opacity-0`}>
+            Comprehensive Solutions for <span style={{color: PRIMARY_COLOR}}>Your Success</span>
+          </h2>
+          <p className={`section-subtitle text-lg text-subtle-text mb-16 max-w-2xl mx-auto opacity-0`}>
+            We offer a suite of expert services designed to address your core business needs and drive sustainable growth.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {services.map((service) => (
+              <div key={service.id} className="section-content-item opacity-0">
+                 <ServiceCardHighlight service={service} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section ref={whyChooseUsSectionRef} className={`section-padding bg-[${LIGHT_BACKGROUND}]`}>
+        <div className="container-padding text-center">
+          <h2 className={`section-title text-3xl md:text-4xl font-bold text-dark-text mb-4 opacity-0`}>
+            Why Partner with <span style={{color: PRIMARY_COLOR}}>{companyName}?</span>
+          </h2>
+          <p className={`section-subtitle text-lg text-subtle-text mb-16 max-w-2xl mx-auto opacity-0`}>
+            We're more than just a service provider; we're your dedicated partner in achieving business excellence.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUsItems.map((item) => (
+              <div key={item.title} className="section-content-item bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 opacity-0">
+                <item.icon size={48} style={{color: PRIMARY_COLOR}} className="mx-auto mb-5" />
+                <h3 className="text-xl font-semibold text-dark-text mb-3">{item.title}</h3>
+                <p className="text-subtle-text text-sm leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Testimonials Section */}
+      <section ref={testimonialsSectionRef} className="section-padding bg-white">
+        <div className="container-padding text-center">
+          <h2 className={`section-title text-3xl md:text-4xl font-bold text-dark-text mb-4 opacity-0`}>
+            Hear From Our <span style={{color: PRIMARY_COLOR}}>Valued Clients</span>
+          </h2>
+          <p className={`section-subtitle text-lg text-subtle-text mb-16 max-w-2xl mx-auto opacity-0`}>
+            Discover how we've helped businesses like yours thrive and achieve their goals.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {testimonials.slice(0,3).map(testimonial => ( 
+              <div key={testimonial.id} className="section-content-item opacity-0">
+                 <TestimonialCard testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section ref={ctaSectionRef} className="section-padding" style={{backgroundColor: SECONDARY_COLOR}}>
+        <div className="container-padding text-center">
+          <h2 className="section-title text-3xl md:text-4xl font-bold text-white mb-6 opacity-0">
+            Ready to <span style={{color: ACCENT_YELLOW}}>Twist Your Trends</span> and Grow?
+          </h2>
+          <p className="section-subtitle text-lg text-slate-200 mb-10 max-w-xl mx-auto opacity-0">
+            Let's discuss how Trendtwistr can tailor solutions to meet your unique business challenges.
+          </p>
+          <div className="section-content-item opacity-0">
+            <Link href="/contact"
+                style={{ backgroundColor: PRIMARY_COLOR, color: TEXT_ON_PRIMARY }}
+                className={`font-semibold py-3.5 px-10 rounded-lg text-lg shadow-lg transform hover:scale-105 transition-all duration-300 hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-secondary focus:ring-primary`}>
+                Get Started Today
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
-}
+};
+export default HomePage;

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+    // ... other options ...
+    "skipLibCheck": true 
+  },
+  // ...
 }
