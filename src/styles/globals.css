@@ -1,14 +1,12 @@
 /* src/styles/globals.css (FOR TAILWIND v4.x) */
-@import "tailwindcss/preflight"; /* Replaces @tailwind base */
-@import "tailwindcss/components"; /* Replaces @tailwind components */
-@import "tailwindcss/utilities"; /* Replaces @tailwind utilities */
+@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-/* Basic body styling */
 body {
   @apply font-inter antialiased text-dark-text bg-light-bg;
 }
 
-/* General container for consistent padding */
 .section-padding {
   @apply py-16 md:py-24;
 }
@@ -17,7 +15,6 @@ body {
   @apply container mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-/* Animation utility for GSAP (elements start hidden if you use these classes) */
 .gsap-fade-in {
   opacity: 0;
 }
@@ -33,4 +30,3 @@ body {
     opacity: 0;
     transform: translateX(50px);
 }
-/* The extra '}' at the end was removed from here */
