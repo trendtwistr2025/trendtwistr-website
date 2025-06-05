@@ -44,6 +44,6 @@ module.exports = {
     },
   },
   plugins: [
-    // require('@tailwindcss/forms'), // REMOVED FOR TAILWIND V4 DEBUGGING
+    // require('@tailwindcss/forms'), // Temporarily removed for Tailwind v4 debugging
   ],
 };

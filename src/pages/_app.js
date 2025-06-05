@@ -6,8 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from '../components/Navbar'; 
 import Footer from '../components/Footer';   
-// If you have a WhatsAppChatButton or ScrollToTopButton used globally, import it here too
-// import WhatsAppChatButton from '../components/WhatsAppChatButton'; 
+// import WhatsAppChatButton from '../components/WhatsAppChatButton'; // If you plan to use this
 
 // Global constants - these are used by your components and should be defined
 export const PRIMARY_COLOR = "#f87d39";
@@ -18,9 +17,6 @@ export const DARK_TEXT = "#1e293b";
 export const SUBTLE_TEXT = "#64748b";
 export const LIGHT_BACKGROUND = "#f8fafc";
 export const ACCENT_YELLOW = "#FFC107";
-
-// The background pattern is fine here if you want it applied to the main div
-// const backgroundPattern = `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`;
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -41,17 +37,15 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <div 
         className="flex flex-col min-h-screen" 
-        // The body styles from globals.css (font, antialiasing, text-dark-text, bg-light-bg) 
-        // will be applied to the <body> tag automatically by Tailwind.
-        // If you want the background pattern on this div:
-        // style={{ backgroundColor: LIGHT_BACKGROUND, backgroundImage: backgroundPattern }}
+        // The body styles (font-inter, antialiased, text-dark-text, bg-light-bg) 
+        // from globals.css will apply to the <body> tag automatically by Tailwind.
       >
         <Navbar /> 
         <main className="flex-grow pt-20 md:pt-24"> {/* Padding to offset fixed navbar */}
           <Component {...pageProps} />
         </main>
         <Footer />
-        {/* <WhatsAppChatButton /> If you are using this */}
+        {/* <WhatsAppChatButton /> If you decided to use this */}
       </div>
     </>
   );
