@@ -3,7 +3,6 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    // Add any other top-level folders in src/ if you use Tailwind classes there
   ],
   theme: {
     extend: {
@@ -45,7 +44,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
+    // require('@tailwindcss/forms'), // REMOVED FOR TAILWIND V4 DEBUGGING
   ],
 };
-// The extra '}' at the end was removed from here
