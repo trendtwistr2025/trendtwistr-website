@@ -48,3 +48,4 @@ module.exports = {
     require('@tailwindcss/forms'),
   ],
 };
+// The extra '}' at the end was removed from here
