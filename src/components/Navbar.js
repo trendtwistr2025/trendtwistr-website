@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Menu, X } from 'lucide-react';
-import { companyName, navLinks } from '@/data/trendtwistrData';
-import { PRIMARY_COLOR } from '@/pages/_app';
+import { navLinks, companyName } from '@/data/trendtwistrData';
+import { PRIMARY_COLOR } from '@/styles/theme';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,36 +19,35 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
-      <div className="container-padding">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 md:h-24">
-          <Link href="/" className="flex-shrink-0 group cursor-pointer flex items-center gap-2">
-            <div className="relative h-10 w-10 md:h-12 md:w-12">
-              <Image 
-                src="/assets/trendtwistr-logo.png" 
-                alt={`${companyName} Logo`} 
-                fill
-                className="object-contain" // Replaces objectFit
-                priority
-                sizes="50px" // Optimization hint
-              />
-            </div>
-            <span className={`text-2xl md:text-3xl font-extrabold transition-colors text-primary ${isScrolled || isMobileMenuOpen ? '' : 'md:text-white'}`}>
-              {companyName}
-            </span>
+          
+          {/* --- UPDATED LOGO SECTION --- */}
+          <Link href="/" className="flex-shrink-0 group cursor-pointer flex items-center">
+            {/* Using width and height props directly for better control */}
+            <Image
+                src="/assets/trendtwistr-logo.png" // Ensure this logo is in public/assets
+                alt={`${companyName} Logo`}
+                width={150} // Increased width - you can adjust this value
+                height={40}  // Increased height - you can adjust this value
+                objectFit="contain" // Ensures logo is not stretched
+                priority // Good for logos to load fast
+            />
+            {/* The company name <span> has been removed */}
           </Link>
-          {/* ... Rest of Navbar JSX ... */}
+
           <div className="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => {
               const isActive = router.pathname === link.href;
               return (
-                <Link key={link.name} href={link.href} className={`relative px-4 py-2.5 rounded-lg text-sm font-semibold transition-all group ${isActive ? 'text-white shadow-md bg-primary' : `${isScrolled ? 'text-dark-text hover:text-primary' : 'text-slate-100 hover:text-white'}`}`}>
+                <Link key={link.name} href={link.href} className={`relative px-4 py-2.5 rounded-lg text-sm font-semibold transition-all group ${isActive ? 'text-white shadow-md bg-primary' : `${isScrolled ? 'text-dark-text hover:text-primary' : 'text-slate-00 hover:text-primary'}`}`}>
                   {link.name}
                 </Link>
               );
             })}
           </div>
           <div className="md:hidden">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={`p-2 rounded-md focus:outline-none transition-colors ${isScrolled || isMobileMenuOpen ? 'text-dark-text hover:text-primary' : 'text-white'}`}>
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={`p-2 rounded-md focus:outline-none transition-colors ${isScrolled || isMobileMenuOpen ? 'text-dark-text hover:text-primary' : 'text-black'}`}>
               {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>

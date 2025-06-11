@@ -5,6 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import WhatsAppChatButton from '@/components/WhatsAppChatButton';
+
+// Constants are no longer exported from this file.
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -26,8 +29,10 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </main>
         <Footer />
+        <WhatsAppChatButton />
       </div>
     </>
   );
 }
+
 export default MyApp;
