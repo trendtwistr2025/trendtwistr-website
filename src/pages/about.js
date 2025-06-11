@@ -9,12 +9,21 @@ import { PRIMARY_COLOR, SECONDARY_COLOR, DARK_TEXT, SUBTLE_TEXT, ACCENT_YELLOW, 
 
 gsap.registerPlugin(ScrollTrigger);
 
+// 1. Create a map of icon names to the imported icon components
+const iconMap = {
+  Lightbulb,
+  ShieldCheck,
+  TrendingUp,
+  Users,
+};
+
 const AboutPage = () => {
   const mainContentRef = useRef(null);
   const pageHeaderRef = useRef(null);
   const headerContentRef = useRef(null);
   const headerBgRef = useRef(null);
 
+  // --- This useEffect hook remains unchanged ---
   useEffect(() => {
     const ctx = gsap.context(() => {
       
@@ -38,6 +47,7 @@ const AboutPage = () => {
     return () => ctx.revert();
   }, []);
   
+  // --- This useEffect hook remains unchanged ---
   useEffect(() => {
       const ctx = gsap.context(() => {
         gsap.utils.toArray('.gsap-reveal').forEach(el => {
@@ -62,7 +72,7 @@ const AboutPage = () => {
 
         {/* Page Header with 3D Parallax Effect */}
         <section ref={pageHeaderRef} className="relative section-padding text-white text-center overflow-hidden">
-          <div ref={headerBgRef} className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url('/assets/about-us-background.jpg')`, transform: 'scale(1.1)' }}>
+          <div ref={headerBgRef} className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url('/assets/hero-background.jpg')`, transform: 'scale(1.1)' }}>
             <div className="absolute inset-0 bg-secondary/80"></div>
           </div>
           <div ref={headerContentRef} className="container-padding relative z-10">
@@ -89,16 +99,16 @@ const AboutPage = () => {
               <Image 
                 src="/assets/about-us-image.jpg" 
                 alt="The Trendtwistr team collaborating" 
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-500 hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-500 hover:scale-105"
                 onError={(e) => { e.currentTarget.src = `https://placehold.co/600x550/${SECONDARY_COLOR.substring(1)}/FFFFFF?text=Our+Workspace`; }}
               />
             </div>
           </div>
         </section>
 
-        {/* --- NEW "Our Core Values" Section (Replaces Team/Timeline) --- */}
+        {/* --- "Our Core Values" Section (Corrected) --- */}
         <section className={`section-padding bg-light-bg overflow-hidden`}>
             <div className="container-padding">
                 <div className="text-center mb-16">
@@ -106,15 +116,19 @@ const AboutPage = () => {
                     <p className="gsap-reveal text-lg text-subtle-text max-w-2xl mx-auto">The principles that guide every decision we make.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {whyChooseUsItems.map((item, index) => (
-                        <div key={item.title} className="gsap-reveal bg-white p-8 rounded-xl shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2">
-                            <div className="flex items-center justify-center h-20 w-20 mx-auto mb-6 rounded-full bg-primary/10">
-                                <item.icon size={40} className="text-primary" />
+                    {/* 2. Use the map to look up and render the correct icon */}
+                    {whyChooseUsItems.map((item) => {
+                        const IconComponent = iconMap[item.iconName] || Lightbulb;
+                        return (
+                            <div key={item.title} className="gsap-reveal bg-white p-8 rounded-xl shadow-lg text-center transform transition-transform duration-300 hover:-translate-y-2">
+                                <div className="flex items-center justify-center h-20 w-20 mx-auto mb-6 rounded-full bg-primary/10">
+                                    <IconComponent size={40} className="text-primary" />
+                                </div>
+                                <h3 className="text-xl font-semibold text-dark-text mb-3">{item.title}</h3>
+                                <p className="text-subtle-text text-sm">{item.description}</p>
                             </div>
-                            <h3 className="text-xl font-semibold text-dark-text mb-3">{item.title}</h3>
-                            <p className="text-subtle-text text-sm">{item.description}</p>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>
@@ -139,4 +153,3 @@ const AboutPage = () => {
  };
 
  export default AboutPage;
- 

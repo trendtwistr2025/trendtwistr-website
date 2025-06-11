@@ -2,16 +2,34 @@ import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Target, DollarSign, Users } from 'lucide-react';
+import { 
+    CheckCircle, Target, DollarSign, Users, Search, Megaphone, Share2, MailIcon, 
+    BookUser, FileText, Calculator, Lightbulb, UserSearch, ClipboardUser, Presentation, Briefcase 
+} from 'lucide-react';
 import { gsap } from 'gsap';
 import { services, portfolioItems } from '@/data/trendtwistrData';
-import { PRIMARY_COLOR, SECONDARY_COLOR, TEXT_ON_PRIMARY, DARK_TEXT, SUBTLE_TEXT, ACCENT_YELLOW, companyName, LIGHT_BACKGROUND } from '@/styles/theme';
-import PortfolioCard from '@/components/PortfolioCard'; // Import the new component
+import { PRIMARY_COLOR, TEXT_ON_PRIMARY, DARK_TEXT } from '@/styles/theme';
+import PortfolioCard from '@/components/PortfolioCard';
 
+// Icon map for all possible icons used on this page
 const iconMap = {
-  Target: Target,
-  DollarSign: DollarSign,
-  Users: Users,
+  // Main service icons
+  Target,
+  DollarSign,
+  Users,
+  // Key offering icons
+  Search,
+  Megaphone,
+  Share2,
+  MailIcon,
+  BookUser,
+  FileText,
+  Calculator,
+  Lightbulb,
+  UserSearch,
+  ClipboardUser,
+  Presentation,
+  Briefcase,
 };
 
 const ServiceDetailPage = ({ service, portfolio }) => {
@@ -30,6 +48,7 @@ const ServiceDetailPage = ({ service, portfolio }) => {
   }, []);
 
   if (!service) return <div>Service not found.</div>;
+  
   const IconComponent = iconMap[service.iconName] || Target;
 
   return (
@@ -59,12 +78,12 @@ const ServiceDetailPage = ({ service, portfolio }) => {
           </div>
         </section>
 
-        {/* --- Key Offerings Section --- */}
+        {/* --- Key Offerings Section (Corrected) --- */}
         <section className="pb-16 md:pb-24 bg-light-bg">
             <div className="container-padding">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {service.keyOfferings.map((offering) => {
-                      const OfferingIcon = offering.icon || CheckCircle;
+                      const OfferingIcon = iconMap[offering.iconName] || CheckCircle; // Use the iconMap
                       return (
                         <div key={offering.title} className="bg-white p-6 rounded-lg shadow-md gsap-reveal">
                           <OfferingIcon size={32} className="mb-4" style={{color: service.color}}/>
@@ -77,7 +96,7 @@ const ServiceDetailPage = ({ service, portfolio }) => {
             </div>
         </section>
 
-        {/* --- NEW: Portfolio Section (Only for Digital Marketing) --- */}
+        {/* --- Portfolio Section --- */}
         {service.id === 'digital-marketing' && portfolio.length > 0 && (
           <section className="section-padding bg-white">
             <div className="container-padding text-center">
@@ -108,21 +127,21 @@ const ServiceDetailPage = ({ service, portfolio }) => {
   );
 };
 
-// ... (getStaticPaths function remains the same) ...
+export async function getStaticPaths() {
+  const paths = services.map(service => ({
+    params: { serviceId: service.id },
+  }));
+  return { paths, fallback: false };
+}
 
-// --- UPDATED getStaticProps ---
 export async function getStaticProps({ params }) {
   const serviceData = services.find(s => s.id === params.serviceId);
-  
-  // Filter portfolio items for this specific service
   const servicePortfolio = portfolioItems.filter(p => p.serviceId === params.serviceId);
-
-  const { icon, ...serializableServiceData } = serviceData;
 
   return {
     props: {
-      service: serializableServiceData || null,
-      portfolio: servicePortfolio || [], // Pass the portfolio data
+      service: serviceData || null,
+      portfolio: servicePortfolio || [],
     },
   };
 }

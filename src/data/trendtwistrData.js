@@ -143,3 +143,35 @@ export const companyStats = [
   { id: 3, endValue: 98, suffix: "%", label: "Client Retention" },
   { id: 4, endValue: 10, suffix: "+", label: "Years of Experience" }
 ];
+
+// src/data/trendtwistrData.js
+
+// ... (keep all your existing code)
+
+export const portfolioItems = [
+  { 
+    id: 1, 
+    serviceId: 'digital-marketing',
+    title: "E-commerce SEO Overhaul", 
+    category: "SEO & E-commerce",
+    description: "Revamped an online store's SEO strategy, leading to a 150% increase in organic traffic and a 75% rise in sales.",
+    image: "https://placehold.co/600x400/f87d39/FFFFFF?text=SEO+Success"
+  },
+  { 
+    id: 2, 
+    serviceId: 'digital-marketing',
+    title: "Social Media Campaign for 'LaunchDay'", 
+    category: "Social Media",
+    description: "Executed a multi-platform social media campaign that generated over 2 million impressions and 50,000 user engagements.",
+    image: "https://placehold.co/600x400/f87d39/FFFFFF?text=Social+Campaign"
+  },
+   { 
+    id: 3, 
+    serviceId: 'digital-marketing',
+    title: "Lead-Gen PPC for B2B SaaS", 
+    category: "PPC Advertising",
+    description: "Developed and managed a Google Ads campaign that lowered cost-per-acquisition by 40% while increasing qualified leads.",
+    image: "https://placehold.co/600x400/f87d39/FFFFFF?text=PPC+Results"
+  },
+  // Add other portfolio items for other services if needed
+];

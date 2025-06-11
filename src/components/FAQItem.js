@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { gsap } from 'gsap';
-import { DARK_TEXT, PRIMARY_COLOR, SUBTLE_TEXT } from '@/pages/_app';
+import { DARK_TEXT, PRIMARY_COLOR, SUBTLE_TEXT } from '@/styles/theme';
 
 const FAQItem = ({ faq }) => {
   const [isOpen, setIsOpen] = useState(false);

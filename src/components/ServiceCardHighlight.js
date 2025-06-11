@@ -1,9 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Target, DollarSign, Users } from 'lucide-react';
+
+// Map of icon names to the actual imported icon components
+const iconMap = {
+  Target,
+  DollarSign,
+  Users,
+};
 
 const ServiceCardHighlight = ({ service }) => {
-  const IconComponent = service.icon; // This uses the icon component directly, which is fine
+  // Look up the icon component from the map, with a fallback
+  const IconComponent = iconMap[service.iconName] || Target; 
+
   return (
     <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all h-full flex flex-col text-center border-t-4" style={{borderColor: service.color}}>
       <div className="mx-auto mb-6 p-4 rounded-full inline-flex" style={{backgroundColor: `${service.color}20`}}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
-import { PRIMARY_COLOR, DARK_TEXT, SUBTLE_TEXT, ACCENT_YELLOW } from '@/pages/_app';
+import { PRIMARY_COLOR, DARK_TEXT, SUBTLE_TEXT, ACCENT_YELLOW } from '@/styles/theme';
 
 const TestimonialCard = ({ testimonial }) => (
   <div className="bg-slate-50 p-8 rounded-xl shadow-lg border-l-4 h-full flex flex-col" style={{borderColor: PRIMARY_COLOR}}>

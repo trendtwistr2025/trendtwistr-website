@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowRight, Users as UsersIcon } from 'lucide-react';
+import { ArrowRight, Users as UsersIcon, Lightbulb, ShieldCheck, TrendingUp } from 'lucide-react';
 import { gsap } from 'gsap';
 import { services, testimonials, whyChooseUsItems } from '@/data/trendtwistrData';
 import ServiceCardHighlight from '@/components/ServiceCardHighlight';
@@ -17,6 +17,14 @@ import {
   companyName 
 } from '@/styles/theme';
 
+// 1. Create a map of icon names to the imported icon components
+const iconMap = {
+  Lightbulb,
+  ShieldCheck,
+  TrendingUp,
+  Users: UsersIcon, // Use an alias for Users to avoid naming conflicts
+};
+
 const HomePage = () => {
   const heroRef = useRef(null);
   const heroContentRef = useRef(null);
@@ -31,6 +39,7 @@ const HomePage = () => {
     if (el && !sectionsRef.current.includes(el)) sectionsRef.current.push(el);
   };
   
+  // --- This useEffect hook remains unchanged ---
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
@@ -153,7 +162,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* --- Rest of the homepage sections remain the same --- */}
       <section ref={addToSectionRefs} className="section-padding bg-white">
         <div className="container-padding text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-text mb-4 gsap-reveal">Comprehensive Solutions for <span className="text-primary">Your Success</span></h2>
@@ -169,7 +177,17 @@ const HomePage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-dark-text mb-4 gsap-reveal">Why Partner with <span className="text-primary">{companyName}?</span></h2>
           <p className="text-lg text-subtle-text mb-16 max-w-2xl mx-auto gsap-reveal">We're your dedicated partner in achieving business excellence.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUsItems.map((item) => (<div key={item.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-1 gsap-reveal"><item.icon size={48} className="text-primary mx-auto mb-5" /><h3 className="text-xl font-semibold text-dark-text mb-3">{item.title}</h3><p className="text-subtle-text text-sm">{item.description}</p></div>))}
+            {/* 2. Use the map to look up and render the correct icon */}
+            {whyChooseUsItems.map((item) => {
+              const IconComponent = iconMap[item.iconName] || Lightbulb;
+              return (
+                <div key={item.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-1 gsap-reveal">
+                  <IconComponent size={48} className="text-primary mx-auto mb-5" />
+                  <h3 className="text-xl font-semibold text-dark-text mb-3">{item.title}</h3>
+                  <p className="text-subtle-text text-sm">{item.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
