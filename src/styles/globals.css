@@ -3,39 +3,51 @@
 @tailwind utilities;
 
 body {
-  @apply font-inter antialiased text-dark-text bg-light-bg;
+ @apply font-inter antialiased text-dark-text bg-light-bg;
 }
+
 .section-padding { @apply py-16 md:py-24; }
 .container-padding { @apply container mx-auto px-4 sm:px-6 lg:px-8; }
-.gsap-reveal { opacity: 0; }
+.gsap-reveal { opacity: 1; }
+
 /* ... (keep your existing @tailwind directives and other styles) ... */
 
 /* --- Add these new styles for modern animations --- */
-
 /* Wrapper for the text reveal animation */
+
 .text-reveal-mask {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom; /* Aligns the mask correctly with surrounding text */
+ display: inline-block;
+ overflow: hidden;
+ vertical-align: bottom; /* Aligns the mask correctly with surrounding text */
 }
 
 /* The actual text element that slides up */
+
 .text-reveal-inner {
-  display: inline-block;
-  transform: translateY(110%);
-  opacity: 0;
+ display: inline-block;
+ transform: translateY(110%);
+ opacity: 0;
+
 }
 
 /* ... (keep your existing styles) ... */
 
 /* --- Style for the button ripple effect --- */
 .ripple-effect {
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7); /* White ripple */
-  transform: scale(0);
-  opacity: 1;
-  pointer-events: none; /* Allows clicks to go through to the button */
-  width: 100%;
-  padding-top: 100%; /* Creates a perfect circle */
+ position: absolute;
+ border-radius: 50%;
+ background-color: rgba(255, 255, 255, 0.7); /* White ripple */
+ transform: scale(0);
+ opacity: 1;
+ pointer-events: none; /* Allows clicks to go through to the button */
+ width: 100%;
+ padding-top: 100%; /* Creates a perfect circle */
+}
+
+/* Custom class for the Digital Marketing header background */
+.dm-header-bg {
+  background-image: url('/assets/services/digital-marketing-header.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }

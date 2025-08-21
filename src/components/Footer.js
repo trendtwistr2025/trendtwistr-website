@@ -54,7 +54,7 @@ const Footer = () => {
           <div className="space-y-5">
             <Link href="/" className="inline-block group">
                 <Image
-                  src="/assets/trendtwistr-logo-white.png" // Ensure you have this logo
+                  src="/assets/tt-logo-white.png" // Ensure you have this logo
                   alt={`${companyName} Logo`}
                   width={180} 
                   height={50}  
