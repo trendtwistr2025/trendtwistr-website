@@ -62,7 +62,7 @@ const ContactPage = () => {
         </section>
 
         <section ref={formSectionRef} className="section-padding -mt-24">
-            <div className="container-padding grid lg:grid-cols-2 gap-16">
+            <div className="py-10 container-padding grid lg:grid-cols-2 gap-16">
                 <div className="bg-white p-8 md:p-10 rounded-2xl shadow-2xl">
                     <h2 className={`text-3xl font-bold text-dark-text mb-8`}>Send Us a Message</h2>
                     {status.message && status.type !== 'info' && (
@@ -90,7 +90,7 @@ const ContactPage = () => {
         </section>
 
         <section ref={faqSectionRef} className="section-padding">
-          <div className="container-padding">
+          <div className="py-10 container-padding">
             <h2 className="gsap-reveal text-3xl md:text-4xl font-bold text-center text-dark-text mb-12">Frequently Asked Questions</h2>
             <div className="max-w-3xl mx-auto space-y-4">
               {mockFaqs.map(faq => (

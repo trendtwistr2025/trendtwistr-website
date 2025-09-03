@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
- @apply font-inter antialiased text-dark-text bg-light-bg;
+  @apply antialiased text-dark-text bg-light-bg;
 }
 
 .section-padding { @apply py-16 md:py-24; }
@@ -50,4 +50,78 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+/* Custom styles for the Swiper coverflow effect */
+.mySwiper .swiper-slide-active {
+  /* Increase the size of the center slide (e.g., 1.2 is 20% larger) */
+  transform: scale(1.2);
+  /* Ensure the active slide is on top of the others */
+  z-index: 1;
+}
+
+/* Add a smooth transition for the scaling effect */
+.mySwiper .swiper-slide {
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Custom styles for Swiper Navigation Arrows */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  /* This is your primary color */
+  color: #f87d39 !important; 
+  /* Move the arrows outside */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mySwiper .swiper-button-prev {
+  left: -10px;
+}
+
+.mySwiper .swiper-button-next {
+  right: -10px;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .mySwiper .swiper-button-prev {
+    left: -5px;
+  }
+
+  .mySwiper .swiper-button-next {
+    right: -5px;
+  }
+}
+
+/* Custom styles for Swiper Custom Arrows */
+.swiper-custom-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem; /* Adjust as needed */
+  z-index: 10;
+  pointer-events: none; /* Allows clicks to go through to slider */
+}
+
+/* Custom styles for Swiper Custom Arrows (Below Slider) */
+.swiper-custom-button {
+  color: #f87d39; /* Your primary color */
+  background-color: white;
+  border-radius: 9999px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.swiper-custom-button:hover {
+  transform: scale(1.1);
 }

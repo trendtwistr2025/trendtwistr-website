@@ -20,7 +20,7 @@ export const services = [
     detailedDescription: "Our comprehensive digital marketing services are designed to build your brand's online presence, drive targeted traffic, and convert visitors into loyal customers. We use a data-driven approach to ensure every action has a measurable impact on your business goals.",
     keyOfferings: [
         { id: 'graphic-design', iconName: 'Palette', title: "Graphic Design", description: "Stunning visuals and branding that capture attention and tell your story." },
-        { id: 'website-development', iconName: 'LayoutTemplate', title: "Website Development", description: "User-friendly, responsive websites that convert visitors into customers." },
+        { id: 'website-development', iconName: 'LayoutTemplate', title: "Website & App Development", description: "User-friendly, responsive websites that convert visitors into customers." },
         { id: 'seo', iconName: 'Search', title: "SEO", description: "Increase your visibility on search engines and drive organic traffic." },
         { id: 'social-media-management', iconName: 'Share2', title: "Social Media Management", description: "Build and engage your community with compelling content and strategies." },
         { id: 'paid-advertising', iconName: 'Megaphone', title: "Paid Advertising", description: "Targeted ad campaigns on Google and social media for immediate results." },
@@ -43,9 +43,9 @@ export const services = [
         { iconName: 'Lightbulb', title: "Advisory Services", description: "Strategic financial advice to guide your business growth." },
     ],
     whyWeAreDifferent: [
-        { number: "01", text: "Proactive Financial Strategy: We provide forward-looking financial advice to help you seize opportunities, not just report on the past." },
-        { number: "02", text: "Technology-Driven Insights: We leverage modern accounting software to give you real-time, actionable insights into your business's financial health." },
-        { number: "03", text: "Integrated Business View: Our accounting services connect with our other departments to ensure your financial plan supports your marketing and growth goals." },
+        { number: "01", text: "Proactive Financial Strategy" },
+        { number: "02", text: "Technology-Driven Insights" },
+        { number: "03", text: "Integrated Business View" },
     ],
     image: `/assets/services/accounting.jpg`,
   },
@@ -63,10 +63,10 @@ export const services = [
         { iconName: 'Presentation', title: "Interview Management", description: "Coordinating and managing the entire interview process." },
         { iconName: 'Briefcase', title: "Executive Search", description: "Finding top-tier leadership and executive talent." },
     ],
-    whyWeAreDifferent: [
-        { number: "01", text: "Focus on Cultural Fit: We go beyond resumes, using behavioral assessments to find candidates who will enrich your company culture." },
-        { number: "02", text: "Data-Informed Hiring: Our process is backed by market data to ensure you make competitive offers for top-tier talent." },
-        { number: "03", text: "Long-Term Partnership: We aim to be your long-term talent partner, understanding your evolving needs as your business grows." },
+     whyWeAreDifferent: [
+        { number: "01", text: "Focus on Cultural Fit" },
+        { number: "02", text: "Data-Informed Hiring" },
+        { number: "03", text: "Long-Term Partnership" },
     ],
     image: `/assets/services/recruitment.jpg`,
   },
@@ -119,7 +119,30 @@ export const digitalMarketingOfferingsDetails = [
     id: 'graphic-design',
     title: 'Graphic Design',
     description: 'We create compelling visuals that define your brand and captivate your audience.',
-    detailedDescription: 'Our graphic design services are foundational to building a strong brand identity. We craft everything from logos and brand style guides to social media graphics and marketing collateral, ensuring a cohesive and professional look across all platforms.',
+    approach: {
+      title: "Design Innovation at Your Fingertips",
+      description: "Great design is about performance, utility, efficiency, and beauty. We combine these principles to create visuals that not only look stunning but also achieve your business objectives.",
+      image: "/assets/services/graphic-design-approach.png"
+    },
+    motionSection: {
+      title: "Lorem ipsum dolor sit amet",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.",
+      gifPath: "/assets/services/motion-graphic.gif"
+    },
+    providedServices: [
+      { iconPath: '/assets/icons/logo-design.png', title: 'Logo Design' },
+      { iconPath: '/assets/icons/brochure-design.png', title: 'Brochure Design' },
+      { iconPath: '/assets/icons/product-branding.png', title: 'Product Branding' },
+      { iconPath: '/assets/icons/email-signatures.png', title: 'Email Signatures Design' },
+      { iconPath: '/assets/icons/flyer-banner.png', title: 'Flyer & Banner' },
+      { iconPath: '/assets/icons/business-card.png', title: 'Business Card' },
+      { iconPath: '/assets/icons/letterheads.png', title: 'Letterheads' },
+      { iconPath: '/assets/icons/social-media.png', title: 'Social Media Post' },
+      { iconPath: '/assets/icons/id-cards.png', title: 'ID Cards' },
+      { iconPath: '/assets/icons/invitation-card.png', title: 'Invitation Card' },
+      { iconPath: '/assets/icons/presentations.png', title: 'Presentations' },
+      { iconPath: '/assets/icons/hoarding-poster.png', title: 'Hoarding and Poster' },
+    ],
     points: [
       "Logo Design & Brand Identity",
       "Marketing & Advertising Graphics",
@@ -130,41 +153,127 @@ export const digitalMarketingOfferingsDetails = [
   },
   {
     id: 'website-development',
-    title: 'Website Development',
+    title: 'Website & App Development',
     description: 'We build fast, responsive, and conversion-focused websites.',
-    detailedDescription: 'Your website is your digital storefront. We specialize in building custom websites that are not only visually stunning but also optimized for performance, user experience, and converting visitors into customers. We work with a variety of platforms including Shopify, WordPress, and custom builds.',
-    points: [
+    approach: {
+      title: "Enabling Seamless Digital Experiences Through Stunning Websites & Mobile Apps",
+      description: "Our expertise in website and mobile app development empowers you to deliver high-value, exceptional digital experiences to your customers helping your business thrive in the modern digital landscape.",
+      image: "/assets/services/website-dev-approach.png" // This is the image you provided
+    },
+    ourProcess: [
+        { 
+            title: "1. Discovery & Planning", 
+            description: "We start by understanding your vision, goals, and target audience to create a detailed project blueprint and strategy." 
+        },
+        { 
+            title: "2. UI/UX Design", 
+            description: "Our design team creates intuitive wireframes and stunning visual mockups that focus on user experience and brand identity." 
+        },
+        { 
+            title: "3. Development & Coding", 
+            description: "Our developers bring the designs to life with clean, efficient code, building a fast and responsive website." 
+        },
+        { 
+            title: "4. Launch & Optimization", 
+            description: "After rigorous testing, we deploy your website and monitor its performance to ensure continued success and optimization." 
+        },
+    ],
+
+     // 👇 NEW SECTION DATA 👇
+    motionSection: {
+      title: "Dynamic Interfaces, Engaging Experiences",
+      description: "We go beyond static pages by integrating motion and animation to create a more dynamic and engaging user experience. Smooth transitions and interactive elements capture attention and guide users through your site.",
+      gifPath: "/assets/services/motion-graphic.gif" // Using the same GIF for this example
+    },
+     providedServices: [
+      { iconPath: '/assets/icons/UIUX.png', title: 'UI/UX Design' },
+      { iconPath: '/assets/icons/WebsiteDevlopment.png', title: 'Website Devopment' },
+      { iconPath: '/assets/icons/E-Commerce.png', title: 'E-Commerce Devopment' },
+      { iconPath: '/assets/icons/CRM.png', title: 'CRM & Analytics' },
+      { iconPath: '/assets/icons/WebsiteMaintenance.png', title: 'Website Maintenance' },
+      { iconPath: '/assets/icons/responsive.png', title: 'Responsive Design' },
+      { iconPath: '/assets/icons/UIUX.png', title: 'Mobile App Devlopment' },
+    ],
+     points: [
       "Custom Website Design",
       "E-commerce & Shopify Stores",
       "Content Management Systems (CMS)",
       "Performance & Speed Optimization",
       "Website Maintenance & Support",
-    ],
+    ],    
   },
   {
     id: 'seo',
     title: 'SEO',
     description: 'We improve your organic visibility to attract high-quality traffic from search engines.',
-    detailedDescription: 'Search Engine Optimization is critical for long-term growth. Our team of experts focuses on a holistic SEO strategy that includes technical optimization, high-quality content creation, and authoritative link building to help you rank higher than your competitors.',
-    points: [
-      "Technical SEO Audits & Fixes",
-      "Keyword Research & Content Strategy",
-      "On-Page & Off-Page SEO",
-      "Local SEO & Google Business Profile",
-      "Analytics & Performance Tracking",
+    // 👇 NEW SECTION DATA 👇
+    approach: {
+      title: "Climbing the Ranks to Reach Your Audience",
+      description: "Effective SEO is a blend of art and science. We focus on building a strong technical foundation, creating authoritative content, and earning quality backlinks to establish your long-term organic success.",
+      image: "/assets/services/seo-approach.png" // You'll need to save an image here
+    },
+
+        // 👇 NEW SECTION DATA 👇
+    providedServices: [
+      { iconPath: '/assets/icons/technical-seo.png', title: 'Technical SEO' },
+      { iconPath: '/assets/icons/on-page-seo.png', title: 'On-Page SEO' },
+      { iconPath: '/assets/icons/off-page-seo.png', title: 'Off-Page SEO' },
+      { iconPath: '/assets/icons/local-seo.png', title: 'Local SEO' },
+      { iconPath: '/assets/icons/ecommerce-seo.png', title: 'E-commerce SEO' },
+      { iconPath: '/assets/icons/keyword-research.png', title: 'Keyword Research' },
     ],
+
+    // 👇 NEW SECTION DATA 👇
+    ourProcess: [
+      { 
+        title: "1. Technical Audit & Analysis", 
+        description: "We conduct a deep dive into your website's technical health to identify and fix issues that hinder search engine ranking." 
+      },
+      { 
+        title: "2. Keyword & Competitor Research", 
+        description: "We identify high-value keywords and analyze your competition to create a data-driven strategy for success." 
+      },
+      { 
+        title: "3. Content & On-Page Optimization", 
+        description: "We create and optimize high-quality content that satisfies both search engines and your target audience." 
+      },
+      { 
+        title: "4. Reporting & Continuous Growth", 
+        description: "You receive clear monthly reports on your progress, and we continually refine our strategy to ensure long-term growth." 
+      },
+    ],
+  caseStudies: [
+        {
+            client: "Global E-commerce Brand",
+            result: "+150% Organic Traffic",
+            description: "Overhauled their technical SEO and content strategy, leading to a massive increase in non-paid traffic in just 6 months.",
+            image: "/assets/case-studies/ecommerce-traffic-graph.png" 
+        },
+        {
+            client: "Local Service Provider",
+            result: "#1 on Google Maps",
+            description: "Dominated local search results by optimizing their Google Business Profile and local citations, driving a 200% increase in calls.",
+            image: "/assets/case-studies/local-seo-ranking.png" 
+        }
+    ]
   },
+
   {
-    id: 'social-media-management',
+     id: 'social-media-management',
     title: 'Social Media Management',
     description: 'We build and engage your community with compelling content and strategies.',
-    detailedDescription: 'We manage your social media presence across platforms like Facebook, Instagram, LinkedIn, and more. Our service includes content creation, scheduling, community engagement, and performance reporting to grow your following and build a loyal brand community.',
-    points: [
-      "Platform-Specific Content Strategy",
-      "Content Creation & Scheduling",
-      "Community Engagement & Moderation",
-      "Social Media Advertising Campaigns",
-      "Performance Analytics & Reporting",
+    approach: {
+      title: "Building Communities, Not Just Followings",
+      description: "Our social media approach is centered on creating authentic connections. We develop a unique voice for your brand, foster meaningful engagement, and turn followers into loyal advocates through strategic content and community management.",
+      image: "/assets/services/smm-approach.png" // You'll need to save an image here
+    },
+    providedServices: [
+      { iconPath: '/assets/icons/smm-strategy.png', title: 'Content Strategy' },
+      { iconPath: '/assets/icons/smm-creation.png', title: 'Content Creation' },
+      { iconPath: '/assets/icons/smm-scheduling.png', title: 'Scheduling & Posting' },
+      { iconPath: '/assets/icons/smm-community.png', title: 'Community Management' },
+      { iconPath: '/assets/icons/smm-ads.png', title: 'Social Media Ads' },
+      { iconPath: '/assets/icons/smm-analytics.png', title: 'Analytics & Reporting' },
     ],
   },
   {
@@ -195,12 +304,41 @@ export const digitalMarketingOfferingsDetails = [
   },
 ];
 
+// GRAPHIC DESIGN PORTFOLIO DATA
+export const graphicDesignPortfolio = [
+  { id: 1, title: "Corporate Branding Package 1", image: "/assets/portfolio/graphic-design/gd-1.jpg" },
+  { id: 2, title: "Social Media Campaign Visuals 1", image: "/assets/portfolio/graphic-design/gd-2.jpg" },
+  { id: 3, title: "Event Banner & Print Design 1", image: "/assets/portfolio/graphic-design/gd-3.jpg" },
+  { id: 4, title: "Corporate Branding Package 2", image: "/assets/portfolio/graphic-design/gd-4.jpg" },
+  { id: 5, title: "Social Media Campaign Visuals 2", image: "/assets/portfolio/graphic-design/gd-5.jpg" },
+  { id: 6, title: "Event Banner & Print Design 2", image: "/assets/portfolio/graphic-design/gd-6.jpg" },
+  { id: 7, title: "Corporate Branding Package 3", image: "/assets/portfolio/graphic-design/gd-7.jpg" },
+  { id: 8, title: "Social Media Campaign Visuals 3", image: "/assets/portfolio/graphic-design/gd-8.jpg" },
+  { id: 9, title: "Event Banner & Print Design 3", image: "/assets/portfolio/graphic-design/gd-9.jpg" },
+  { id: 10, title: "Corporate Branding Package 4", image: "/assets/portfolio/graphic-design/gd-10.jpg" },
+  { id: 11, title: "Social Media Campaign Visuals 4", image: "/assets/portfolio/graphic-design/gd-11.jpg" },
+  { id: 12, title: "Event Banner & Print Design 4", image: "/assets/portfolio/graphic-design/gd-12.jpg" },
+  { id: 13, title: "Corporate Branding Package 5", image: "/assets/portfolio/graphic-design/gd-13.jpg" },
+  { id: 14, title: "Social Media Campaign Visuals 5", image: "/assets/portfolio/graphic-design/gd-14.jpg" },
+  { id: 15, title: "Event Banner & Print Design 5", image: "/assets/portfolio/graphic-design/gd-15.jpg" },
+  { id: 16, title: "Corporate Branding Package 6", image: "/assets/portfolio/graphic-design/gd-16.jpg" },
+  { id: 17, title: "Social Media Campaign Visuals 6", image: "/assets/portfolio/graphic-design/gd-17.jpg" },
+  { id: 18, title: "Event Banner & Print Design 6", image: "/assets/portfolio/graphic-design/gd-18.jpg" },
+  { id: 19, title: "Corporate Branding Package 7", image: "/assets/portfolio/graphic-design/gd-19.jpg" },
+  { id: 20, title: "Social Media Campaign Visuals 7", image: "/assets/portfolio/graphic-design/gd-20.jpg" },
+  { id: 21, title: "Event Banner & Print Design 7", image: "/assets/portfolio/graphic-design/gd-21.jpg" },
+  { id: 22, title: "Corporate Branding Package 8", image: "/assets/portfolio/graphic-design/gd-22.jpg" },
+  { id: 23, title: "Social Media Campaign Visuals 8", image: "/assets/portfolio/graphic-design/gd-23.jpg" },
+  { id: 24, title: "Event Banner & Print Design 8", image: "/assets/portfolio/graphic-design/gd-24.jpg" },
+  { id: 25, title: "Corporate Branding Package 9", image: "/assets/portfolio/graphic-design/gd-25.jpg" },
+];
+
 export const companyInfo = {
-  mission: "To empower businesses by providing innovative digital marketing, precise accounting, and strategic recruitment solutions, fostering growth in a dynamic world.",
-  vision: "To be the leading partner for businesses seeking comprehensive growth solutions, recognized for our expertise, integrity, and commitment to client success.",
+  mission: "To help businesses grow by offering expert guidance in marketing, precise accounting, and strategic recruitment solutions all under one roof.",
+  vision: "To be the leading partner for ambitious businesses seeking comprehensive growth solutions.",
   contact: { 
     phone: "+91 91574 15897", 
-    email: "trendtwistr@gmail.com", 
+    email: "info@trendtwistr.com", 
     address: "Ahmedabad, Gujarat, India" 
   },
   socialLinks: { 
@@ -263,4 +401,22 @@ export const mockFaqs = [
       question: "What is the process for getting started with your services?", 
       answer: "The first step is to schedule a free consultation through our contact form. We'll discuss your needs, goals, and challenges to determine how we can best help. From there, we'll develop a customized proposal and plan of action for your business." 
     },
+];
+// RENAMED and UPDATED for Website Development
+export const websiteDevelopmentPortfolio = [
+  { 
+    id: 1, 
+    title: "Live E-commerce Store", 
+    liveUrl: "https://verticalinnovations.in/" // Replace with your live URL
+  },
+  { 
+    id: 2, 
+    title: "Corporate Business Website", 
+    liveUrl: "https://startupsavera.com/" // Replace with your live URL
+  },
+  { 
+    id: 3, 
+    title: "Interactive Booking Platform", 
+    liveUrl: "https://shivam.trendtwistr.com/" // Replace with your live URL
+  },
 ];

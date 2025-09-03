@@ -56,17 +56,12 @@ const Footer = () => {
                 <Image
                   src="/assets/tt-logo-white.png" // Ensure you have this logo
                   alt={`${companyName} Logo`}
-                  width={180} 
-                  height={50}  
+                  width={150} 
+                  height={30}  
                   objectFit="contain"
                   onError={(e) => { e.currentTarget.style.display = 'none'; /* Hide if logo fails */ }}
                 />
-                {/* Fallback text logo (optional, remove if image always available) */}
-                <noscript> 
-                  <span className="text-3xl font-extrabold text-white group-hover:text-slate-200 transition-colors block mt-1"> 
-                    {companyName}
-                  </span>
-                </noscript>
+                
             </Link>
             <p className={`text-sm leading-relaxed opacity-80 ${footerTextColor}`}>
               {companyInfo.mission.substring(0, 100) + "..."}

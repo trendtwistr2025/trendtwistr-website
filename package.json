@@ -10,11 +10,16 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.10",
-    "gsap": "^3.12.5",
+    "@use-gesture/react": "^10.3.1",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.395.0",
     "next": "^15.3.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-slick": "^0.31.0",
+    "react-spring": "^10.0.1",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "eslint": "^8",
