@@ -275,31 +275,115 @@ export const digitalMarketingOfferingsDetails = [
       { iconPath: '/assets/icons/smm-ads.png', title: 'Social Media Ads' },
       { iconPath: '/assets/icons/smm-analytics.png', title: 'Analytics & Reporting' },
     ],
+     // 👇 NEW SECTION DATA 👇
+    motionSection: {
+      title: "Content That Stops the Scroll",
+      description: "In a fast-moving feed, static images aren't enough. We specialize in creating eye-catching motion graphics, short-form videos, and animated stories that capture attention and drive engagement.",
+      gifPath: "/assets/services/motion-graphic.gif" // Using the same GIF for this example
+    },
   },
   {
     id: 'paid-advertising',
-    title: 'Paid Advertising',
+    title: 'Paid Advertising (PPC)',
     description: 'We create and manage targeted ad campaigns that deliver immediate, measurable results.',
-    detailedDescription: 'For rapid results and targeted reach, our PPC services are unmatched. We manage campaigns on Google Ads and all major social media platforms, focusing on optimizing your ad spend for the highest possible return on investment (ROI).',
-    points: [
-      "Google Ads (Search, Display, Shopping)",
-      "Facebook & Instagram Ads",
-      "LinkedIn B2B Advertising",
-      "A/B Testing & Ad Copy Optimization",
-      "Conversion Rate Optimization (CRO)",
+    approach: {
+      title: "Driving High-Intent Traffic, Instantly",
+      description: "Our approach to Paid Advertising is rooted in precision and optimization. We focus on getting your brand in front of the right audience at the exact moment they're ready to convert, ensuring every ad dollar works as hard as possible for your business.",
+      image: "/assets/services/ppc-approach.png" // You'll need to save an image here
+    },
+    providedServices: [
+      { iconPath: '/assets/icons/ppc-google-ads.png', title: 'Google Ads' },
+      { iconPath: '/assets/icons/ppc-social-ads.png', title: 'Social Media Ads' },
+      { iconPath: '/assets/icons/ppc-display-ads.png', title: 'Display Advertising' },
+      { iconPath: '/assets/icons/ppc-shopping-ads.png', title: 'Shopping Ads' },
+      { iconPath: '/assets/icons/ppc-remarketing.png', title: 'Remarketing' },
+      { iconPath: '/assets/icons/ppc-analytics.png', title: 'Campaign Analytics' },
+    ],
+     ourProcess: [
+        { 
+            title: "1. Strategy & Research", 
+            description: "We analyze your audience and competitors to develop a targeted ad strategy that maximizes your budget and reach." 
+        },
+        { 
+            title: "2. Campaign Setup & Creation", 
+            description: "We set up your campaigns, write compelling ad copy, and create eye-catching visuals to drive clicks and conversions." 
+        },
+        { 
+            title: "3. Monitoring & A/B Testing", 
+            description: "We continuously monitor campaign performance, A/B test ad variations, and optimize for the best possible results." 
+        },
+        { 
+            title: "4. Reporting & Scaling", 
+            description: "You receive transparent reports on your ad spend and ROI, with clear recommendations for scaling your success." 
+        },
+    ],
+     platforms: [
+        { 
+            iconPath: '/assets/icons/platform-google.png', 
+            title: "Google Ads" 
+        },
+        { 
+            iconPath: '/assets/icons/platform-meta.png', 
+            title: "Meta Ads" 
+        },
+        { 
+            iconPath: '/assets/icons/platform-linkedin.png', 
+            title: "LinkedIn Ads" 
+        },
     ],
   },
   {
     id: 'email-marketing',
     title: 'Email Marketing',
     description: 'We design and execute effective email campaigns to nurture leads and retain your existing customers.',
-    detailedDescription: 'Email marketing remains one of the most effective digital channels. We help you build your email list and create automated nurturing sequences, promotional campaigns, and newsletters that keep your audience engaged and drive sales.',
-    points: [
-      "Email Campaign Strategy",
-      "Marketing Automation & Workflows",
-      "List Building & Segmentation",
-      "Template Design & Copywriting",
-      "Performance Tracking & A/B Testing",
+    approach: {
+      title: "Building Relationships, One Email at a Time",
+      description: "Our email marketing strategy focuses on delivering the right message to the right person at the right time. We build automated workflows and personalized campaigns that nurture leads, drive conversions, and foster long-term customer loyalty.",
+      image: "/assets/services/email-approach.png" // You'll need to save an image here
+    },
+    providedServices: [
+      { iconPath: '/assets/icons/email-strategy.png', title: 'Campaign Strategy' },
+      { iconPath: '/assets/icons/email-automation.png', title: 'Marketing Automation' },
+      { iconPath: '/assets/icons/email-list.png', title: 'List Building' },
+      { iconPath: '/assets/icons/email-template.png', title: 'Template Design' },
+      { iconPath: '/assets/icons/email-copywriting.png', title: 'Copywriting' },
+      { iconPath: '/assets/icons/email-analytics.png', title: 'Performance Analytics' },
+    ],
+    ourProcess: [
+        { 
+            title: "1. Strategy & Segmentation", 
+            description: "We start by understanding your audience and segmenting your email list to deliver highly targeted messages." 
+        },
+        { 
+            title: "2. Content & Design", 
+            description: "We create compelling copy and design beautiful, mobile-responsive email templates that reflect your brand." 
+        },
+        { 
+            title: "3. Automation & Drip Campaigns", 
+            description: "We build automated email sequences to nurture new leads, welcome new customers, and re-engage inactive subscribers." 
+        },
+        { 
+            title: "4. Reporting & Optimization", 
+            description: "You receive clear reports on open rates, click-through rates, and conversions, and we continuously optimize for better results." 
+        },
+    ],
+    platforms: [
+        { 
+            iconPath: '/assets/icons/platform-mailchimp.png', 
+            title: "Mailchimp" 
+        },
+        { 
+            iconPath: '/assets/icons/platform-klaviyo.png', 
+            title: "Klaviyo" 
+        },
+        { 
+            iconPath: '/assets/icons/platform-hubspot.png', 
+            title: "HubSpot" 
+        },
+        { 
+            iconPath: '/assets/icons/platform-sendinblue.png', 
+            title: "Brevo (Sendinblue)" 
+        },
     ],
   },
 ];
@@ -419,4 +503,13 @@ export const websiteDevelopmentPortfolio = [
     title: "Interactive Booking Platform", 
     liveUrl: "https://shivam.trendtwistr.com/" // Replace with your live URL
   },
+];
+
+// NEW PORTFOLIO DATA FOR SOCIAL MEDIA
+export const socialMediaPortfolio = [
+  { id: 1, title: "Instagram Campaign - 'Vivid Colors'", image: "/assets/portfolio/social-media/sm-1.jpg" },
+  { id: 2, title: "Facebook Ad Creative - 'Summer Sale'", image: "/assets/portfolio/social-media/sm-2.jpg" },
+  { id: 3, title: "LinkedIn Engagement Post", image: "/assets/portfolio/social-media/sm-3.jpg" },
+  { id: 4, title: "Twitter Infographic Series", image: "/assets/portfolio/social-media/sm-4.jpg" },
+  { id: 5, title: "Instagram Story Highlight", image: "/assets/portfolio/social-media/sm-5.jpg" },
 ];

@@ -1,33 +1,22 @@
-// src/pages/services/digital-marketing/social-media-management.js
+// src/pages/services/digital-marketing/paid-advertising.js
 
 import React, { useLayoutEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { digitalMarketingOfferingsDetails, socialMediaPortfolio } from '@/data/trendtwistrData';
+import { digitalMarketingOfferingsDetails } from '@/data/trendtwistrData';
 import { DARK_TEXT, PRIMARY_COLOR, SECONDARY_COLOR } from '@/styles/theme';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Import GSAP and its plugins
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { SplitText } from "gsap/SplitText";
 
-// Import Swiper for the portfolio
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-// Find the specific data for this page
-const pageData = digitalMarketingOfferingsDetails.find(o => o.id === 'social-media-management');
+const pageData = digitalMarketingOfferingsDetails.find(o => o.id === 'paid-advertising');
 
-const SocialMediaPage = () => {
+const PaidAdvertisingPage = () => {
   const mainRef = useRef(null);
-  const swiperRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -64,22 +53,24 @@ const SocialMediaPage = () => {
         ease: "elastic.out(1, 0.75)",
         scrollTrigger: { trigger: ".services-grid", start: "top 80%" }
       });
-      
-      // 4. Batch Reveal for Portfolio
-      const portfolioSection = document.querySelector(".portfolio-section");
-      if(portfolioSection) {
-        gsap.from(portfolioSection, {
-            y: 100,
-            autoAlpha: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: portfolioSection,
-                start: "top 85%",
-            }
-        });
-      }
 
+      // 4. 3D Card Flip for Process & Platforms Sections
+      const cards = gsap.utils.toArray(".animated-card");
+      cards.forEach((card) => {
+        gsap.fromTo(card, 
+          { autoAlpha: 0, rotationY: -90, transformPerspective: 800 },
+          { 
+            duration: 1, 
+            autoAlpha: 1, 
+            rotationY: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            }
+          }
+        );
+      });
     }, mainRef);
     return () => ctx.revert();
   }, []);
@@ -154,84 +145,61 @@ const SocialMediaPage = () => {
           </section>
         )}
         
-        {pageData.motionSection && (
-          <section className="py-10">
-              <div className="container-padding grid md:grid-cols-2 gap-12 items-center">
-                  <div className="relative w-full h-80 md:h-96">
-                      <Image 
-                          src={pageData.motionSection.gifPath}
-                          alt={pageData.motionSection.title}
-                          fill
-                          className="object-contain"
-                          unoptimized={true}
-                      />
-                  </div>
-                  <div className="md:order-first">
-                      <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{color: PRIMARY_COLOR}}>{pageData.motionSection.title}</h2>
-                      <p className="text-lg text-subtle-text leading-relaxed">{pageData.motionSection.description}</p>
-                  </div>
-              </div>
-          </section>
+        {/* "Our Process" Section (RESTORED) */}
+        {pageData.ourProcess && (
+            <section className="py-10">
+                <div className="container-padding">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold" style={{ color: SECONDARY_COLOR }}>Our Process</h2>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {pageData.ourProcess.map((step) => (
+                            <div key={step.title} className="animated-card bg-light-bg p-8 rounded-lg shadow-lg text-center">
+                                <h3 className="text-xl font-semibold text-dark-text mb-3" style={{color: '#f87d39'}}>{step.title}</h3>
+                                <p className="text-subtle-text text-sm">{step.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         )}
 
-        <section className="py-10 bg-light-bg overflow-hidden portfolio-section">
-            <div className="container-padding text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-dark-text mb-4">Our Work in Action</h2>
-              <p className="text-lg text-subtle-text mb-12 max-w-2xl mx-auto">A selection of our successful social media campaigns.</p>
-              
-              <div className="relative">
-                <Swiper
-                  onSwiper={(swiper) => { swiperRef.current = swiper; }}
-                  effect={'coverflow'}
-                  grabCursor={true}
-                  centeredSlides={true}
-                  slidesPerView={'auto'}
-                  coverflowEffect={{ rotate: 0, stretch: 50, depth: 250, modifier: 1, slideShadows: false }}
-                  navigation={false}
-                  loop={true}
-                  autoplay={{ delay: 2500, disableOnInteraction: false }}
-                  modules={[EffectCoverflow, Pagination, Autoplay]}
-                  className="mySwiper w-full py-8"
-                >
-                  {socialMediaPortfolio.map(item => (
-                      <SwiperSlide key={item.id} style={{ width: '500px', maxWidth: '500px' }}>
-                       <div className="group rounded-lg overflow-hidden shadow-lg">
-                           <div className="relative w-full aspect-[500/500]">
-                            <Image
-                              src={item.image}
-                              alt={item.title}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-                <div className="flex justify-center items-center gap-4 mt-8">
-                    <button 
-                        aria-label="Previous slide"
-                        className="swiper-custom-button" 
-                        onClick={() => swiperRef.current?.slidePrev()}
-                    >
-                        <ChevronLeft size={24} />
-                    </button>
-                    <button 
-                        aria-label="Next slide"
-                        className="swiper-custom-button" 
-                        onClick={() => swiperRef.current?.slideNext()}
-                    >
-                        <ChevronRight size={24} />
-                    </button>
+        {pageData.platforms && (
+            <section className="py-10 bg-light-bg">
+                <div className="container-padding">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold" style={{ color: SECONDARY_COLOR }}>Platforms We Master</h2>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                        {pageData.platforms.map((platform) => (
+                            <div key={platform.title} className="animated-card bg-white p-8 rounded-lg shadow-lg flex flex-col items-center justify-center text-center">
+                                <div className="relative h-24 w-24 mb-4">
+                                    <Image
+                                        src={platform.iconPath}
+                                        alt={`${platform.title} logo`}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                                <h3 className="text-lg font-semibold text-dark-text">{platform.title}</h3>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-              </div>
-            </div>
-          </section>
+            </section>
+        )}
         
-       
+        <section className="section-padding" style={{backgroundColor: DARK_TEXT}}>
+            <div className="container-padding text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready for Immediate Results?</h2>
+                <Link href="/contact" className="font-semibold py-3 px-8 rounded-lg text-lg text-white" style={{backgroundColor: PRIMARY_COLOR}}>
+                    Launch Your Campaign
+                </Link>
+            </div>
+        </section>
       </div>
     </>
   );
 };
 
-export default SocialMediaPage;
+export default PaidAdvertisingPage;
