@@ -5,7 +5,16 @@ export const companyName = "Trendtwistr";
 export const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
-  { name: 'Services', href: '/services' },
+  { 
+    name: 'Services', 
+    href: '/services',
+    // 👇 NEW SUBMENU DATA 👇
+    subMenu: [
+      { name: 'Digital Marketing', href: '/services/digital-marketing' },
+      { name: 'Accounting', href: '/services/accounting' },
+      { name: 'Recruitment', href: '/services/recruitment' },
+    ]
+  },
   { name: 'Contact Us', href: '/contact' },
 ];
 
@@ -26,7 +35,8 @@ export const services = [
         { id: 'paid-advertising', iconName: 'Megaphone', title: "Paid Advertising", description: "Targeted ad campaigns on Google and social media for immediate results." },
         { id: 'email-marketing', iconName: 'MailIcon', title: "Email Marketing", description: "Nurture leads and retain customers with effective email automation." },
     ],
-    image: `/assets/services/digital-marketing.jpg`,
+    //image: `/assets/services/digital-marketing.jpg`,
+    image:'https://placehold.co/600x400/f87d39/FFFFFF?text=Digital+Marketing'
   },
   { 
     id: 'accounting', 
@@ -37,38 +47,40 @@ export const services = [
     description: "We offer everything from bookkeeping and payroll to financial reporting and tax preparation, ensuring accuracy.",
     detailedDescription: "Trendtwistr provides meticulous accounting solutions including comprehensive bookkeeping, payroll processing, financial statement preparation, tax planning and preparation, budgeting, and advisory services.",
     keyOfferings: [
-        { iconName: 'BookUser', title: "Bookkeeping & Payroll", description: "Accurate and timely bookkeeping and payroll services." },
-        { iconName: 'FileText', title: "Financial Reporting", description: "Clear and insightful financial reports for decision making." },
-        { iconName: 'Calculator', title: "Tax Preparation", description: "Expert tax preparation and planning to maximize returns." },
-        { iconName: 'Lightbulb', title: "Advisory Services", description: "Strategic financial advice to guide your business growth." },
-    ],
-    whyWeAreDifferent: [
+      { id: 'bookkeeping-payroll', iconName: 'BookUser', title: "Bookkeeping & Payroll", description: "Accurate and timely bookkeeping and payroll services." },
+      { id: 'financial-reporting', iconName: 'FileText', title: "Financial Reporting", description: "Clear and insightful financial reports for decision making." },
+      { id: 'tax-preparation', iconName: 'Calculator', title: "Tax Preparation", description: "Expert tax preparation and planning to maximize returns." },
+      { id: 'advisory-services', iconName: 'Lightbulb', title: "Advisory Services", description: "Strategic financial advice to guide your business growth." },
+  ],
+   whyWeAreDifferent: [
         { number: "01", text: "Proactive Financial Strategy" },
         { number: "02", text: "Technology-Driven Insights" },
         { number: "03", text: "Integrated Business View" },
     ],
-    image: `/assets/services/accounting.jpg`,
+    //image: `/assets/services/accounting.jpg`,
+    image:'https://placehold.co/600x400/2B267F/FFFFFF?text=Accounting+Services'
   },
   { 
     id: 'recruitment', 
     title: "Recruitment Solutions", 
     tagline: "Connecting Talent with Opportunity.", 
     iconName: 'Users',
-    color: "#34D399", 
+    color: "#2B267F", 
     description: "Find the perfect fit for your team with our specialized recruitment services, streamlining your hiring process.",
     detailedDescription: "Our recruitment services cover the full hiring lifecycle, from understanding your company culture to candidate sourcing, screening, interview coordination, offer negotiation, and onboarding support.",
     keyOfferings: [
-        { iconName: 'UserSearch', title: "Talent Sourcing", description: "Finding the best candidates using advanced sourcing techniques." },
-        { iconName: 'ClipboardList', title: "Candidate Screening", description: "Thorough screening to ensure the perfect fit for your team." },
-        { iconName: 'Presentation', title: "Interview Management", description: "Coordinating and managing the entire interview process." },
-        { iconName: 'Briefcase', title: "Executive Search", description: "Finding top-tier leadership and executive talent." },
+        { id: 'talent-sourcing', iconName: 'UserSearch', title: "Talent Sourcing", description: "Finding the best candidates using advanced sourcing techniques." },
+        { id: 'candidate-screening', iconName: 'ClipboardList', title: "Candidate Screening", description: "Thorough screening to ensure the perfect fit for your team." },
+        { id: 'interview-management', iconName: 'Presentation', title: "Interview Management", description: "Coordinating and managing the entire interview process." },
+        { id: 'executive-search', iconName: 'Briefcase', title: "Executive Search", description: "Finding top-tier leadership and executive talent." },
     ],
      whyWeAreDifferent: [
         { number: "01", text: "Focus on Cultural Fit" },
         { number: "02", text: "Data-Informed Hiring" },
         { number: "03", text: "Long-Term Partnership" },
     ],
-    image: `/assets/services/recruitment.jpg`,
+    //image: `/assets/services/recruitment.jpg`,
+    image:'https://placehold.co/600x400/2B267F/FFFFFF?text=Recruitment+Solutions'
   },
 ];
 
@@ -426,17 +438,19 @@ export const companyInfo = {
     address: "Ahmedabad, Gujarat, India" 
   },
   socialLinks: { 
-    facebook: "#",
-    twitter: "#",
-    linkedin: "#",
-    instagram: "#",
+    facebook: "facebook.com/profile.php?id=61559019904962",
+    twitter: "x.com/Trendtwist32886",
+    linkedin: "linkedin.com/company/trendtwistr",
+    instagram: "https://www.instagram.com/trendtwistr",
+    youtube: "http://www.youtube.com/@Trendtwistr",
+    pinterest: "in.pinterest.com/trendtwistr"
   }
 };
 
 export const testimonials = [
-  { id: 1, rating: 5, name: "Alex Johnson", company: "Tech Solutions Ltd.", quote: "Trendtwistr's digital marketing strategy skyrocketed our online engagement. Highly recommended!", image: "/assets/testimonials/aj.png" },
-  { id: 2, rating: 5, name: "Sarah Miller", company: "GreenLeaf Co.", quote: "Their accounting team is meticulous and incredibly knowledgeable. They've streamlined our finances perfectly.", image: "/assets/testimonials/sm.png" },
-  { id: 3, rating: 5, name: "David Chen", company: "Innovate Staffing", quote: "Finding the right talent was challenging until we partnered with Trendtwistr. Their recruitment process is top-notch.", image: "/assets/testimonials/dc.png" },
+  { id: 1, rating: 5, name: "Alex Johnson", company: "Tech Solutions Ltd.", quote: "Trendtwistr's digital marketing strategy skyrocketed our online engagement. Highly recommended!", image: "https://placehold.co/600x400/f87d39/FFFFFF?text=A" },
+  { id: 2, rating: 5, name: "Sarah Miller", company: "GreenLeaf Co.", quote: "Their accounting team is meticulous and incredibly knowledgeable. They've streamlined our finances perfectly.", image: "https://placehold.co/600x400/f87d39/FFFFFF?text=S" },
+  { id: 3, rating: 5, name: "David Chen", company: "Innovate Staffing", quote: "Finding the right talent was challenging until we partnered with Trendtwistr. Their recruitment process is top-notch.", image: "https://placehold.co/600x400/f87d39/FFFFFF?text=D" },
 ];
 
 export const whyChooseUsItems = [
@@ -513,3 +527,282 @@ export const socialMediaPortfolio = [
   { id: 4, title: "Twitter Infographic Series", image: "/assets/portfolio/social-media/sm-4.jpg" },
   { id: 5, title: "Instagram Story Highlight", image: "/assets/portfolio/social-media/sm-5.jpg" },
 ];
+
+export const accountingOfferingsDetails = [
+  {
+    id: 'bookkeeping-payroll',
+    title: 'Bookkeeping & Payroll',
+    description: 'Streamline your finances and ensure your team is paid on time, every time. We handle the complex details so you can focus on your business.',
+    // 👇 NEW, SIMPLIFIED MAIN CONTENT 👇
+    mainContent: {
+      image: '/assets/services/bookkeeping-payroll-main.jpg',
+      title: 'Clarity and Confidence in Your Finances',
+      intro: "Stop spending valuable time on tedious bookkeeping and complex payroll. Our expert team provides meticulous, reliable financial services, giving you the clarity and peace of mind you need to focus on what you do best: growing your business."
+    },
+    points: [
+      "Daily Transaction Recording",
+      "Bank and Credit Card Reconciliation",
+      "Payroll Processing and Tax Filings",
+      "Accounts Payable and Receivable Management",
+    ],
+    ourProcess: [
+        { 
+            title: "1. Data Collection", 
+            description: "We securely gather all your financial documents, including bank statements, invoices, and receipts." 
+        },
+        { 
+            title: "2. Recording & Reconciliation", 
+            description: "Every transaction is accurately recorded and reconciled to ensure your books are always up-to-date." 
+        },
+        { 
+            title: "3. Payroll Execution", 
+            description: "We process your payroll on time, handle tax withholdings, and ensure compliance with all regulations." 
+        },
+        { 
+            title: "4. Reporting & Review", 
+            description: "You receive clear, concise financial reports, and we schedule regular reviews to discuss your business's health." 
+        },
+    ],
+    whyChooseUs: [
+        { 
+            title: "Save Time & Reduce Stress", 
+            description: "We handle the complex financial tasks so you can focus on running and growing your business." 
+        },
+        { 
+            title: "Ensure Accuracy & Compliance", 
+            description: "Our meticulous approach guarantees your books are always accurate and compliant with the latest tax laws." 
+        },
+        { 
+            title: "Gain Financial Clarity", 
+            description: "Receive easy-to-understand financial reports that empower you to make smarter, data-driven decisions." 
+        },
+    ]
+  },
+  {
+     id: 'financial-reporting',
+    title: 'Financial Reporting',
+    description: 'We provide clear and insightful financial statements for confident business decision-making.',
+    // 👇 NEW DETAILED CONTENT 👇
+    mainContent: {
+      image: '/assets/services/financial-reporting-main.jpg', // You will need to add this image
+      title: 'Transforming Data into Strategic Insight',
+      intro: 'Go beyond raw numbers. Our financial reporting services translate complex data into clear, actionable insights, providing you with a comprehensive understanding of your company\'s performance and potential.'
+    },
+    points: [
+      "Monthly, Quarterly, and Annual Reports",
+      "Income Statement (P&L) Analysis",
+      "Balance Sheet Preparation",
+      "Cash Flow Statement Analysis",
+      "Custom Performance Dashboards",
+      "Budget vs. Actual Variance Reporting",
+    ],
+    whyItMatters: [
+        { 
+            title: "Strategic Decision-Making", 
+            description: "Empower your leadership with data-driven insights to steer your business toward growth and profitability." 
+        },
+        { 
+            title: "Investor & Stakeholder Confidence", 
+            description: "Build trust with professional, transparent financial statements that clearly communicate your company's performance." 
+        },
+        { 
+            title: "Compliance & Peace of Mind", 
+            description: "Rest easy knowing your reports are accurate and compliant with all regulations for audits or tax filings." 
+        },
+    ]
+  },
+  {
+     id: 'tax-preparation',
+    title: 'Tax Preparation',
+    description: 'Expert tax preparation and strategic planning to minimize liabilities and maximize your returns.',
+    mainContent: {
+      image: '/assets/services/tax-preparation-main.jpg',
+      title: 'Navigate Tax Season with Confidence',
+      intro: 'Tax preparation can be complex and stressful. Our expert team handles everything from meticulous preparation to strategic planning, ensuring you remain compliant while minimizing your tax burden and maximizing potential returns.'
+    },
+    points: [
+      "Individual & Corporate Tax Filings",
+      "GST/VAT Return Preparation & Filing",
+      "Strategic Tax Planning & Advisory",
+      "Audit Support & Representation",
+      "TDS Compliance & Filing",
+      "Year-Round Tax Support",
+    ],
+    // 👇 NEW SECTION DATA 👇
+    whyChooseUs: [
+        { 
+            title: "Maximize Your Deductions", 
+            description: "We meticulously review your finances to find every possible deduction and credit, ensuring you pay the absolute minimum in taxes." 
+        },
+        { 
+            title: "Avoid Costly Errors", 
+            description: "Our expert team is up-to-date on all tax laws, preventing common errors that can lead to audits and penalties." 
+        },
+        { 
+            title: "Year-Round Support", 
+            description: "We're not just here during tax season. We provide year-round advice and support to help you make smart financial decisions." 
+        },
+    ]
+  },
+  {
+     id: 'advisory-services',
+    title: 'Advisory Services',
+    description: 'Receive strategic financial advice to guide the growth and long-term stability of your business.',
+    mainContent: {
+      image: '/assets/services/advisory-services-main.jpg',
+      title: 'Strategic Guidance for Sustainable Growth',
+      intro: 'Our advisory services go beyond numbers. We act as your strategic financial partner, providing the insights and guidance you need to navigate challenges, seize opportunities, and build a resilient, profitable business.'
+    },
+    points: [
+      "Business Plan Development",
+      "Financial Forecasting & Budgeting",
+      "Cash Flow Management & Analysis",
+      "Growth Strategy Consulting",
+      "Merger & Acquisition Support",
+      "Business Valuation",
+    ],
+    whoWeServe: [
+        { 
+            title: "Startups & Entrepreneurs", 
+            description: "We provide the foundational financial strategy you need to secure funding and scale sustainably." 
+        },
+        { 
+            title: "Established SMEs", 
+            description: "We help you optimize cash flow, analyze performance, and plan for long-term growth and profitability." 
+        },
+        { 
+            title: "Family-Owned Businesses", 
+            description: "We offer guidance on succession planning, wealth management, and balancing family and business financial goals." 
+        },
+    ]
+  },
+];
+
+  
+export const recruitmentOfferingsDetails = [
+  {
+    id: 'talent-sourcing',
+    title: 'Talent Sourcing',
+    description: 'We find the best passive and active candidates using advanced, multi-channel sourcing techniques.',
+    mainContent: {
+      image: '/assets/services/talent-sourcing-main.jpg', // You will need to add this image
+      title: 'Connecting You with Unseen Talent',
+      intro: 'Finding the best candidates goes beyond job boards. We employ a proactive and strategic approach to sourcing, delving into professional networks, online communities, and our own extensive database to find top-tier talent that isn\'t actively looking, ensuring you get the best fit for your team.'
+    },
+    points: [
+      "Proactive Candidate Search",
+      "Boolean Search & Advanced Techniques",
+      "LinkedIn & Professional Network Sourcing",
+      "Competitor and Market Mapping",
+      "Building a Proactive Talent Pipeline",
+      "Confidential Candidate Outreach",
+     ],
+      whyChooseUs: [
+        { 
+            title: "Access to Passive Talent", 
+            description: "We specialize in finding top-tier candidates who aren't actively looking, giving you access to a wider talent pool." 
+        },
+        { 
+            title: "Faster Hiring Process", 
+            description: "Our strategic sourcing and pre-screening process significantly reduces your time-to-hire, filling critical roles faster." 
+        },
+        { 
+            title: "Cultural Fit Focus", 
+            description: "We go beyond skills and experience to find candidates who align with your company's culture for long-term success." 
+        },
+    ],
+
+    
+    id: 'candidate-screening',
+    title: 'Candidate Screening',
+    description: 'Our thorough screening process ensures you only meet with qualified candidates who are a perfect fit for your team.',
+    mainContent: {
+      image: '/assets/services/candidate-screening-main.jpg', // You will need to add this image
+      title: 'Beyond the Resume: A Deeper Look at Talent',
+      intro: 'We go beyond a simple resume review. Our comprehensive screening process evaluates technical skills, soft skills, and cultural alignment to ensure a holistic match. This meticulous approach saves you time and increases the quality of your interviews.'
+    },
+    points: [
+      "Initial CV & Application Review",
+      "Technical Skills Assessments",
+      "Behavioral & Competency-Based Interviews",
+      "Cultural Fit Evaluation",
+      "Reference & Background Checks",
+      "Shortlist Presentation & Reports",
+    ],
+     benefits: [
+        { 
+            title: "Higher Quality Hires", 
+            description: "Our in-depth screening ensures you only interview candidates who are highly skilled, motivated, and a strong cultural fit." 
+        },
+        { 
+            title: "Reduced Hiring Time", 
+            description: "By eliminating unsuitable candidates early, we significantly shorten your hiring cycle and save you valuable time." 
+        },
+        { 
+            title: "Increased Retention", 
+            description: "A better match from the start leads to higher employee satisfaction and a lower turnover rate, saving you money." 
+        },
+    ],
+     id: 'interview-management',
+    title: 'Interview Management',
+    description: 'We coordinate and manage the entire interview process, ensuring a smooth and professional experience for both you and the candidates.',
+    mainContent: {
+      image: '/assets/services/interview-management-main.jpg', // You will need to add this image
+      title: 'Streamlining the Path to Your Next Hire',
+      intro: 'A well-managed interview process is crucial for attracting top talent. We handle all the logistics, from scheduling and coordination to feedback collection, allowing you to focus on what matters most: evaluating the candidates.'
+    },
+    points: [
+      "Multi-stage Interview Scheduling",
+      "Coordination with Hiring Managers & Candidates",
+      "Preparation of Interview Kits & Scorecards",
+      "Candidate Communication & Follow-ups",
+      "Structured Feedback Collection & Consolidation",
+      "Creating a Positive Candidate Experience",
+    ],
+    benefits: [
+        { 
+            title: "Improved Candidate Experience", 
+            description: "We provide clear communication and a professional process, ensuring every candidate leaves with a positive impression of your company." 
+        },
+        { 
+            title: "Reduced Time-to-Hire", 
+            description: "Our efficient coordination and scheduling significantly speed up the interview process, helping you secure top talent faster." 
+        },
+        { 
+            title: "Unbiased & Data-Driven Decisions", 
+            description: "Using structured feedback and scorecards, we help your team make objective, data-backed hiring decisions." 
+        },
+    ],
+    id: 'executive-search',
+    title: 'Executive Search',
+    description: 'We specialize in finding and placing top-tier leadership and executive talent to drive your company forward.',
+    mainContent: {
+      image: '/assets/services/executive-search-main.jpg', // You will need to add this image
+      title: 'Finding Leaders to Shape Your Future',
+      intro: 'Identifying and attracting high-impact executive talent requires a discreet, strategic, and deeply networked approach. Our executive search service is designed to find leaders who not only have the right experience but also possess the vision and cultural alignment to lead your organization to new heights.'
+    },
+    points: [
+      "C-Suite & Senior Leadership Roles",
+      "Confidential & Discreet Search Process",
+      "In-depth Industry & Competitor Mapping",
+      "Leadership Competency Assessments",
+      "Board & Advisory Position Placements",
+      "Succession Planning & Talent Pipelining",
+    ],
+    whyChooseUs: [
+        { 
+            title: "Absolute Discretion", 
+            description: "All searches are conducted with the utmost confidentiality to protect both your company and potential candidates." 
+        },
+        { 
+            title: "Deep Network Access", 
+            description: "We leverage our extensive, high-level professional network to find exceptional leaders who aren't available through public channels." 
+        },
+        { 
+            title: "Rigorous Vetting Process", 
+            description: "Our multi-stage assessment goes beyond resumes to evaluate leadership qualities, cultural fit, and long-term vision." 
+        },
+    ]
+  },
+    ];
+    

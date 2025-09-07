@@ -141,24 +141,27 @@ const ServiceDetailPage = ({ service }) => {
         )}
 
         {service.id !== 'digital-marketing' && (
-          <>
-            <section className="pb-16 md:pb-24 bg-light-bg">
-                <div className="container-padding">
-                    <div className="text-center mb-12"><h2 className="gsap-reveal text-3xl md:text-4xl font-bold text-dark-text">Key Offerings</h2></div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {service.keyOfferings.map((offering) => {
-                          const OfferingIcon = iconMap[offering.iconName] || CheckCircle;
-                          return (
-                            <div key={offering.title} className="bg-white p-6 rounded-lg shadow-md gsap-reveal">
-                              <OfferingIcon size={32} className="mb-4" style={{color: service.color}}/>
-                              <h3 className="text-xl font-semibold text-dark-text mb-2">{offering.title}</h3>
-                              <p className="text-subtle-text text-sm">{offering.description}</p>
-                            </div>
-                          );
-                        })}
-                    </div>
-                </div>
-            </section>
+  <>
+    <section className="py-10 md:pb-24 bg-light-bg">
+        <div className="container-padding">
+            <div className="text-center mb-12"><h2 className="gsap-reveal text-3xl md:text-4xl font-bold text-secondary">Our Top Accounting Services</h2></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {service.keyOfferings.map((offering) => {
+                  const OfferingIcon = iconMap[offering.iconName] || CheckCircle;
+                  return (
+                    // Link is now conditional
+                    <Link key={offering.id} href={`/services/${service.id}/${offering.id}`} className="gsap-reveal block">
+                        <div className="bg-white p-6 rounded-lg shadow-md h-full hover:shadow-xl hover:-translate-y-1 transition-all">
+                          <OfferingIcon size={32} className="mb-4" style={{color: service.color}}/>
+                          <h3 className="text-xl font-semibold text-dark-text mb-2">{offering.title}</h3>
+                          <p className="text-subtle-text text-sm">{offering.description}</p>
+                        </div>
+                    </Link>
+                  );
+                })}
+            </div>
+        </div>
+    </section>
             {service.whyWeAreDifferent && (
                 <section className="section-padding bg-white">
                     <div className="container-padding text-center max-w-4xl mx-auto">

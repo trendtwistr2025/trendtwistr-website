@@ -93,9 +93,9 @@ const EmailMarketingPage = () => {
 
         <div className="bg-light-bg border-b border-slate-200">
             <div className="container-padding py-4 text-sm text-subtle-text">
-                <Link href="/services.html" className="hover:text-primary">Services</Link>
+                <Link href="/services" className="hover:text-primary">Services</Link>
                 <span className="mx-2">&gt;</span>
-                <Link href="/services/digital-marketing.html" className="hover:text-primary">Digital Marketing</Link>
+                <Link href="/services/digital-marketing" className="hover:text-primary">Digital Marketing</Link>
                 <span className="mx-2">&gt;</span>
                 <span className="text-dark-text">{pageData.title}</span>
             </div>
@@ -192,7 +192,7 @@ const EmailMarketingPage = () => {
         <section className="section-padding" style={{backgroundColor: DARK_TEXT}}>
             <div className="container-padding text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Nurture Your Leads?</h2>
-                <Link href="/contact.html" className="font-semibold py-3 px-8 rounded-lg text-lg text-white" style={{backgroundColor: PRIMARY_COLOR}}>
+                <Link href="/contact" className="font-semibold py-3 px-8 rounded-lg text-lg text-white" style={{backgroundColor: PRIMARY_COLOR}}>
                     Start Your Campaign
                 </Link>
             </div>
