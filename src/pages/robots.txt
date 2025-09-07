@@ -1,0 +1,9 @@
+# Allow all crawlers access
+User-agent: *
+Allow: /
+
+# Disallow crawling of the build asset folder
+Disallow: /_next/
+
+# Point crawlers to your sitemap
+Sitemap: https://new.trendtwistr.com/sitemap.xml

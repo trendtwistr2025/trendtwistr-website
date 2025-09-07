@@ -125,7 +125,7 @@ const ServicesPage = () => {
             <div className="absolute inset-0 bg-secondary/80"></div>
           </div>
           <div ref={headerContentRef} className="container-padding relative z-10">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{color: ACCENT_YELLOW}}>Our Services</h1>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{color: PRIMARY_COLOR}}>Our Services</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
               We provide a suite of integrated services designed to empower your business, drive growth, and ensure success.
             </p>

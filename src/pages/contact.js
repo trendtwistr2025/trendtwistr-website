@@ -70,7 +70,7 @@ const ContactPage = () => {
             </div>
             
             <div ref={headerContentRef} className="container-padding relative z-10">
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{color: ACCENT_YELLOW}}>Contact Us</h1>
+                <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{color: PRIMARY_COLOR}}>Contact Us</h1>
                 <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-90">Have a question or a project in mind? We'd love to hear from you.</p>
             </div>
         </section>

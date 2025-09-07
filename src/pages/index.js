@@ -139,7 +139,7 @@ const HomePage = () => {
 
         <div ref={heroContentRef} className="container-padding relative z-10 text-center">
           <h1 className="gsap-hero-el text-4xl sm:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
-            Twist Your Trends, <span className="block" style={{color: ACCENT_YELLOW}}>Ignite Your Growth.</span>
+            Twist Your Trends, <span className="block" style={{color: PRIMARY_COLOR}}>Ignite Your Growth.</span>
           </h1>
           <p className="gsap-hero-el hero-subtitle text-lg md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
             {companyName} empowers your business with strategic Digital Marketing, precise Accounting, and targeted Recruitment solutions.
@@ -162,7 +162,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section ref={addToSectionRefs} className="section-padding bg-white">
+      <section ref={addToSectionRefs} className="py-16 bg-white">
         <div className="container-padding text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-text mb-4 gsap-reveal">Comprehensive Solutions for <span className="text-primary">Your Success</span></h2>
           <p className="text-lg text-subtle-text mb-16 max-w-2xl mx-auto gsap-reveal">We offer a suite of expert services to address your core business needs.</p>
@@ -172,7 +172,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section ref={addToSectionRefs} className={`section-padding bg-light-bg`}>
+      <section ref={addToSectionRefs} className={`py-16 bg-light-bg`}>
         <div className="container-padding text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-text mb-4 gsap-reveal">Why Partner with <span className="text-primary">{companyName}?</span></h2>
           <p className="text-lg text-subtle-text mb-16 max-w-2xl mx-auto gsap-reveal">We're your dedicated partner in achieving business excellence.</p>
@@ -192,7 +192,7 @@ const HomePage = () => {
         </div>
       </section>
       
-      <section ref={addToSectionRefs} className="section-padding bg-white">
+      <section ref={addToSectionRefs} className="py-16 bg-white">
         <div className="container-padding text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-text mb-4 gsap-reveal">Hear From Our <span className="text-primary">Valued Clients</span></h2>
           <p className="text-lg text-subtle-text mb-16 max-w-2xl mx-auto gsap-reveal">Discover how we've helped businesses like yours thrive.</p>

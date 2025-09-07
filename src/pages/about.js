@@ -76,7 +76,7 @@ const AboutPage = () => {
             <div className="absolute inset-0 bg-secondary/80"></div>
           </div>
           <div ref={headerContentRef} className="container-padding relative z-10">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{ color: ACCENT_YELLOW }}>About Trendtwistr</h1>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{ color: PRIMARY_COLOR }}>About Trendtwistr</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
               Discover the passion, people, and purpose that drive us to create extraordinary solutions for your business.
             </p>
